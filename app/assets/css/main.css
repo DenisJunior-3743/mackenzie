@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens. Anything defined in @theme becomes a Tailwind utility:
+ *   --color-navy-900  ->  bg-navy-900, text-navy-900, border-navy-900 ...
+ *   --font-display    ->  font-display
+ * Colours are taken from the Mackenzie Foundation logo (deep navy + gold).
+ */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+
+  --color-navy-50: #eef3fb;
+  --color-navy-100: #dce7f6;
+  --color-navy-200: #bacfec;
+  --color-navy-300: #8eafdd;
+  --color-navy-400: #5f8ac8;
+  --color-navy-500: #3f68ad;
+  --color-navy-600: #2f5190;
+  --color-navy-700: #274176;
+  --color-navy-800: #1d3059;
+  --color-navy-900: #0c2250;
+  --color-navy-950: #071636;
+
+  --color-gold-50: #fffbeb;
+  --color-gold-100: #fff3c4;
+  --color-gold-200: #ffe58a;
+  --color-gold-300: #ffd24d;
+  --color-gold-400: #fdb913;
+  --color-gold-500: #e9a008;
+  --color-gold-600: #c47f05;
+  --color-gold-700: #9a5f09;
+  --color-gold-800: #7e4c0d;
+  --color-gold-900: #693f10;
+
+  --color-cream: #fffaf0;
+  --color-blush: #fff1ee;
+
+  --shadow-soft: 0 18px 40px -18px rgb(12 34 80 / 0.35);
+
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cream font-sans text-navy-950 antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-500;
+  }
+}
+
+/* Page gutter + max width, used on every section: <div class="container-page"> */
+@utility container-page {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+/* Soft gold + blue glow for banners that have no photo (see PageHero.vue) */
+@utility hero-glow {
+  background-image:
+    radial-gradient(60rem 28rem at 90% -10%, color-mix(in oklab, var(--color-gold-400) 22%, transparent), transparent),
+    radial-gradient(50rem 28rem at 0% 120%, color-mix(in oklab, var(--color-navy-500) 40%, transparent), transparent);
+}
+
+/* Scroll-reveal (see app/plugins/reveal.ts) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.reveal-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    transition: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
