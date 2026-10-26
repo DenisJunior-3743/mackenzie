@@ -6,12 +6,12 @@ export const stats = [
   { value: 3, suffix: '+', label: 'Active volunteers', icon: 'lucide:users' },
 ]
 
-// "Where your support goes" tiles on the Home page.
+// "What your gift provides" tiles on the Home page. Keep these in line with what programs.ts says we do.
 export const projects = [
-  { label: 'Water Access', icon: 'lucide:droplets' },
-  { label: 'Housing', icon: 'lucide:house' },
-  { label: 'Feeding', icon: 'lucide:utensils' },
-  { label: 'Schools Built', icon: 'lucide:school' },
-  { label: 'Donations', icon: 'lucide:hand-coins' },
+  { label: 'Education', icon: 'lucide:graduation-cap' },
+  { label: 'Shelter', icon: 'lucide:house' },
+  { label: 'Meals', icon: 'lucide:utensils' },
+  { label: 'Clothing', icon: 'lucide:shirt' },
+  { label: 'Skills Training', icon: 'lucide:scissors' },
   { label: 'Healthcare', icon: 'lucide:stethoscope' },
 ]

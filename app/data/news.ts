@@ -41,9 +41,9 @@ export const news: Article[] = [
     image: media.supplies,
     imageAlt: 'Volunteers handing out supplies to children',
     excerpt:
-      'Our volunteer program has reached new heights with over 100 active volunteers contributing to our cause.',
+      'Our volunteers give their time to mentor, teach and spend time with the children in our care.',
     intro:
-      'Our volunteer program has reached new heights with over 100 active volunteers contributing to our cause. The program includes:',
+      'Our volunteers give their time to support the children in our care. The program includes:',
     items: [
       'Mentoring and tutoring',
       'Skill development workshops',
@@ -80,9 +80,9 @@ export const news: Article[] = [
     image: media.group,
     imageAlt: 'A group of children outside',
     excerpt:
-      "Our annual donation drive has exceeded expectations, raising over $50,000 for the foundation's programs.",
+      "Our annual donation drive brought in support for the foundation's programs.",
     intro:
-      "Our annual donation drive has exceeded expectations, raising over $50,000 for the foundation's programs. The funds will be used for:",
+      "Our annual donation drive brought in support for the foundation's programs. The funds will be used for:",
     items: [
       'Education programs',
       'Healthcare services',

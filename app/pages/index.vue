@@ -211,8 +211,8 @@ const latest = news.slice(0, 3)
         <SectionHeading
           light
           eyebrow="Where your support goes"
-          title="Our projects & impact"
-          subtitle="Every gift becomes clean water, a safe bed, a meal, a classroom and a check-up."
+          title="What your gift provides"
+          subtitle="Every gift helps provide a safe bed, a meal, schooling and a check-up."
         />
         <ul class="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           <li
