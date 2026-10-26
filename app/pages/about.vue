@@ -65,33 +65,42 @@ useSeoMeta({
       </div>
     </section>
 
-    <!-- WHERE WE SERVE -->
+    <!-- WHERE WE ARE -->
     <section id="where" class="container-page grid scroll-mt-28 items-center gap-12 py-20 md:grid-cols-2 md:gap-16 sm:py-24">
       <div v-reveal class="md:order-2">
         <SectionHeading
           align="left"
-          eyebrow="Where we serve"
-          title="Rooted in Kampala, caring for children in Uganda and Kenya"
-          subtitle="Our home is in Kampala, and we serve the children of Uganda and Kenya."
+          eyebrow="Where we are"
+          title="Rooted in Bidii, caring for children in Uganda and Kenya"
+          :subtitle="`Our home is in ${site.location.name}, and we serve the children of Uganda and Kenya.`"
         />
         <ul class="mt-6 space-y-3 text-navy-800">
           <li class="flex items-center gap-3">
-            <Icon name="lucide:map-pin" size="20" class="text-gold-700" /> {{ site.contact.address }}
+            <Icon name="lucide:map-pin" size="20" class="shrink-0 text-gold-700" /> {{ site.location.name }}
+          </li>
+          <li class="flex items-center gap-3">
+            <Icon name="lucide:mailbox" size="20" class="shrink-0 text-gold-700" /> {{ site.contact.address }}
           </li>
           <li v-for="p in site.contact.phones" :key="p.tel" class="flex items-center gap-3">
-            <Icon name="lucide:phone" size="20" class="text-gold-700" />
+            <Icon name="lucide:phone" size="20" class="shrink-0 text-gold-700" />
             <a :href="`tel:${p.tel}`" class="hover:underline">{{ p.display }}</a>
           </li>
+          <li class="flex items-center gap-3">
+            <Icon name="lucide:mail" size="20" class="shrink-0 text-gold-700" />
+            <a :href="`mailto:${site.contact.email}`" class="break-all hover:underline">{{ site.contact.email }}</a>
+          </li>
         </ul>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <BaseButton :href="site.location.directionsUrl" target="_blank" rel="noopener">
+            <Icon name="lucide:navigation" size="18" /> Get directions
+          </BaseButton>
+          <BaseButton :href="site.location.googleMapsUrl" variant="outline" target="_blank" rel="noopener">
+            <Icon name="lucide:external-link" size="18" /> Open in Google Maps
+          </BaseButton>
+        </div>
       </div>
       <div v-reveal="120" class="md:order-1">
-        <CloudImage
-          :src="media.school"
-          alt="Children walking to school"
-          ratio="16:10"
-          sizes="(min-width: 768px) 50vw, 100vw"
-          class="w-full rounded-3xl object-cover shadow-soft"
-        />
+        <LocationMap />
       </div>
     </section>
 

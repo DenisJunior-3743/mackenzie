@@ -21,7 +21,7 @@ const give = [
 
 <template>
   <footer class="border-t-4 border-gold-400 bg-navy-950 text-navy-100">
-    <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.7fr_0.7fr_1.6fr]">
       <div>
         <NuxtLink to="/" class="flex items-center gap-3" aria-label="Mackenzie Foundation — home">
           <CloudImage :src="media.logo" alt="" ratio="1:1" :widths="[96, 192]" sizes="56px" class="size-14 rounded-full ring-2 ring-gold-400" />
@@ -64,7 +64,11 @@ const give = [
       <div>
         <h2 class="font-sans text-sm font-semibold uppercase tracking-widest text-gold-300">Contact</h2>
         <ul class="mt-4 space-y-3 text-sm">
-          <li class="flex gap-2.5"><Icon name="lucide:map-pin" size="18" class="mt-0.5 shrink-0 text-gold-300" />{{ site.contact.address }}</li>
+          <li class="flex gap-2.5">
+            <Icon name="lucide:map-pin" size="18" class="mt-0.5 shrink-0 text-gold-300" />
+            <NuxtLink to="/about#where" class="hover:text-white hover:underline">{{ site.location.name }} — see map</NuxtLink>
+          </li>
+          <li class="flex gap-2.5"><Icon name="lucide:mailbox" size="18" class="mt-0.5 shrink-0 text-gold-300" />{{ site.contact.address }}</li>
           <li v-for="p in site.contact.phones" :key="p.tel" class="flex gap-2.5">
             <Icon name="lucide:phone" size="18" class="mt-0.5 shrink-0 text-gold-300" />
             <a :href="`tel:${p.tel}`" class="hover:text-white hover:underline">{{ p.display }}</a>

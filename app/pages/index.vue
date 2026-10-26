@@ -2,11 +2,47 @@
 import { projects } from '~/data/impact'
 import { media } from '~/data/media'
 import { news } from '~/data/news'
+import { site } from '~/data/site'
 
 useSeoMeta({
   title: 'Mackenzie Foundation — Empowering Orphans, Transforming Lives',
   description:
     'Join Mackenzie Foundation in providing shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
+})
+
+// Structured data (schema.org JSON-LD): tells Google this is a non-profit, so search results can
+// show the right name, logo and contact details. Everything comes from data/site.ts.
+const { url } = useCloudinary()
+const siteUrl = useSiteConfig().url
+const socialLinks = site.social.filter((s) => s.url).map((s) => s.url)
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NGO',
+        name: site.name,
+        url: siteUrl,
+        logo: url(media.logo, { w: 512, h: 512, crop: 'fill', format: 'png' }),
+        description: site.description,
+        email: site.contact.email,
+        telephone: site.contact.phones[0].tel,
+        address: {
+          '@type': 'PostalAddress',
+          postOfficeBoxNumber: '4277',
+          postalCode: '30200',
+          addressLocality: 'Bidii',
+          addressRegion: 'Trans Nzoia County',
+          addressCountry: 'KE',
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: site.location.lat, longitude: site.location.lng },
+        hasMap: site.location.googleMapsUrl,
+        areaServed: ['Uganda', 'Kenya'],
+        ...(socialLinks.length ? { sameAs: socialLinks } : {}),
+      }),
+    },
+  ],
 })
 
 const pillars = [
@@ -26,7 +62,7 @@ const pillars = [
   },
   {
     title: 'Where We Serve',
-    text: 'Children across Uganda and Kenya, with our home in Kampala.',
+    text: 'Children across Uganda and Kenya, with our home in Bidii, Trans Nzoia County.',
     image: media.school,
     alt: 'Children walking to school together',
     to: '/about#where',

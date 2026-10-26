@@ -297,6 +297,21 @@ Nuxt fills it from the env var `NUXT_PUBLIC_CLOUDINARY_CLOUD_NAME` (prefix `NUXT
 - **`@nuxt/fonts`** downloads Inter and Fraunces at build time and serves them from our own domain.
 - **`@nuxt/icon`** gives the `<Icon name="lucide:heart" />` component. The `clientBundle.scan` option finds every `'lucide:…'` string in the source and bundles those icons into the page, so no icon is ever fetched at runtime.
 
+### 5.9 SEO: helping Google find and understand the site
+
+Four small pieces, all already wired up:
+
+| Piece | Where | What it does |
+| --- | --- | --- |
+| `sitemap.xml` | `@nuxtjs/sitemap` module | Lists every page so Google finds them all. New `/news/<slug>` pages appear automatically. |
+| `robots.txt` | `@nuxtjs/robots` module | Says "crawl everything" and points to the sitemap. On Vercel *preview* deployments it says `Disallow: /`, so test copies never reach Google. |
+| Canonical link | [`app.vue`](../app/app.vue) | `<link rel="canonical">` = the one official address of each page (no `?query`). |
+| Structured data | [`pages/index.vue`](../app/pages/index.vue) | A JSON-LD block that tells Google "this is an NGO" with its logo and contact details. |
+
+The modules need to know the site's public address. It comes from `site.url` in [`nuxt.config.ts`](../nuxt.config.ts), which uses (in order) the `NUXT_PUBLIC_SITE_URL` env var, then the address Vercel provides automatically at build time (`VERCEL_PROJECT_PRODUCTION_URL`).
+
+`useSiteConfig()` (from the `nuxt-site-config` package the modules share) returns those settings anywhere in your code — `app.vue` uses `useSiteConfig().url` to build canonical links. Setup steps for Google Search Console are in the [README](../README.md#getting-found-on-google-search-console).
+
 ---
 
 ## 6. Tailwind CSS v4 in ten minutes
@@ -442,7 +457,7 @@ Edit the tokens in `@theme` in `main.css` (`--color-navy-*`, `--color-gold-*`, `
 Make `app/components/Thing.vue`, then use `<Thing />` anywhere — no import. Start from `SectionHeading.vue` (props + slot-free) or `BaseButton.vue` (variants).
 
 ### Change contact details, payment numbers, social links
-`app/data/site.ts`. Empty social URLs are hidden; empty payment numbers show "contact us".
+`app/data/site.ts`. Empty social URLs are hidden; empty payment numbers show "contact us". The `location` block there (name + latitude/longitude) moves the pin on the map in the About page's "Where we are" section ([`components/LocationMap.vue`](../app/components/LocationMap.vue), built with Leaflet and OpenStreetMap tiles) and updates the "Open in Google Maps" / "Get directions" links.
 
 ### Use a new image
 `npm run upload:media -- ./folder mackenzie`, then add `name: 'mackenzie/<filename>'` to `app/data/media.ts`, then `<CloudImage :src="media.name" … />`.
@@ -461,6 +476,8 @@ Make `app/components/Thing.vue`, then use `<Thing />` anywhere — no import. St
 8. **Don't mutate props.** They're read-only. Copy to a local `ref` or emit an event.
 9. **Static means rebuild.** A prerendered page doesn't change until the next deploy.
 10. **Stale dev server?** If something looks wrong after config or dependency changes, stop `npm run dev`, delete the `.nuxt` folder, run again.
+11. **Environment variables can change the build itself.** On Vercel, variables like `VERCEL_ENV` are set automatically — and if *you* set them in your own terminal to test, Nuxt notices and switches to Vercel's output format (`.vercel/output`) instead of `.output`. Then `npm run preview` serves an *old* build and your change seems to have no effect. To simulate Vercel locally, also set `NITRO_PRESET=node-server`, and check the timestamp on `.output` after building.
+12. **A build can "succeed" and still not test what you think.** Look at what was actually produced (open the generated HTML, fetch `/robots.txt`) instead of trusting an exit code.
 
 ---
 

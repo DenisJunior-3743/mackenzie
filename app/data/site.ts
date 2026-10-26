@@ -6,13 +6,19 @@ export const site = {
     'Mackenzie Foundation provides shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
 
   contact: {
-    // TODO: confirm — the old site listed both info@mackenzie.org and info@mackenzieorphanage.org
-    email: 'info@mackenzieorphanage.org',
-    address: 'Kampala, Uganda',
-    phones: [
-      { display: '0778 602 468', tel: '+256778602468' },
-      { display: '0701 300 966', tel: '+256701300966' },
-    ],
+    email: 'christophermackenziefoundation@gmail.com',
+    address: 'P.O Box 4277-30200 Bidii, Kenya',
+    phones: [{ display: '0725 313 912', tel: '+254725313912' }],
+  },
+
+  // Where the home is. Drives the map on /about#where and the "Open in Google Maps" links.
+  // Coordinates come from the Google Maps pin the foundation shared.
+  location: {
+    name: 'Bidii, Pombo, Trans Nzoia County',
+    lat: 1.055579,
+    lng: 35.026727,
+    googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=1.055579,35.026727',
+    directionsUrl: 'https://www.google.com/maps/dir/?api=1&destination=1.055579,35.026727',
   },
 
   // Only entries with a `url` are shown in the footer. Fill them in when the pages exist.
