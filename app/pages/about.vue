@@ -6,7 +6,7 @@ import { site } from '~/data/site'
 useSeoMeta({
   title: 'About us',
   description:
-    'Mackenzie Foundation provides shelter, education, healthcare and love to orphaned children in Uganda.',
+    'Mackenzie Foundation provides shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
 })
 </script>
 
@@ -15,7 +15,7 @@ useSeoMeta({
     <PageHero
       eyebrow="About us"
       title="Giving every child a safe home and a hopeful future"
-      subtitle="Mackenzie Foundation cares for orphaned children in Uganda."
+      subtitle="Mackenzie Foundation cares for orphaned children in Uganda and Kenya."
     />
 
     <!-- MISSION -->
@@ -25,7 +25,7 @@ useSeoMeta({
           align="left"
           eyebrow="Our mission"
           title="Shelter, education, healthcare and love"
-          subtitle="Every day, hundreds of children in Uganda are orphaned due to disease, conflict, and poverty. Our goal is to provide shelter, education, healthcare, and love to these children."
+          subtitle="Every day, hundreds of children in Uganda and Kenya are orphaned due to disease, conflict, and poverty. Our goal is to provide shelter, education, healthcare, and love to these children."
         />
         <p class="mt-5 max-w-2xl text-lg leading-relaxed text-navy-700">
           We ensure every child under our care is nurtured, protected, and empowered to grow with dignity and hope.
@@ -71,8 +71,8 @@ useSeoMeta({
         <SectionHeading
           align="left"
           eyebrow="Where we serve"
-          title="Rooted in Kampala, caring for Uganda’s children"
-          subtitle="Our home is in Kampala, and we serve the children of Uganda."
+          title="Rooted in Kampala, caring for children in Uganda and Kenya"
+          subtitle="Our home is in Kampala, and we serve the children of Uganda and Kenya."
         />
         <ul class="mt-6 space-y-3 text-navy-800">
           <li class="flex items-center gap-3">

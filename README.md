@@ -1,6 +1,6 @@
 # Mackenzie Foundation website
 
-The website of the Mackenzie Foundation — shelter, education, healthcare and love for orphaned children in Uganda.
+The website of the Mackenzie Foundation — shelter, education, healthcare and love for orphaned children in Uganda and Kenya.
 
 **Stack:** [Nuxt 4](https://nuxt.com) (Vue 3, TypeScript) · [Tailwind CSS v4](https://tailwindcss.com) · [Cloudinary](https://cloudinary.com) for images · hosted on [Vercel](https://vercel.com).
 

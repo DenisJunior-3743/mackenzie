@@ -5,7 +5,7 @@ import { site } from '~/data/site'
 useSeoMeta({
   title: 'Ways to give',
   description:
-    'Give once, sponsor monthly or donate supplies — your support provides shelter, education and hope to orphaned children in Uganda.',
+    'Give once, sponsor monthly or donate supplies — your support provides shelter, education and hope to orphaned children in Uganda and Kenya.',
 })
 
 // Amount buttons deep-link into the form: /donate/now?currency=USD&amount=25&frequency=monthly
@@ -34,7 +34,7 @@ const materialMail = `mailto:${site.contact.email}?subject=${encodeURIComponent(
     <PageHero
       eyebrow="Ways to give"
       title="Make a difference today"
-      subtitle="Your support helps us provide shelter, education, and hope to orphaned children in Uganda."
+      subtitle="Your support helps us provide shelter, education, and hope to orphaned children in Uganda and Kenya."
       :image="media.outreach"
       image-alt="Smiling children holding hygiene supplies"
     >

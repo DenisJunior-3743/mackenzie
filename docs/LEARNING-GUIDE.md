@@ -482,7 +482,7 @@ Make `app/components/Thing.vue`, then use `<Thing />` anywhere — no import. St
 6. Add a language switcher — try the `@nuxtjs/i18n` module.
 
 **Real next steps for the foundation's site:**
-- **Online payments**: add a server route (`server/api/…`) that creates a checkout with a Ugandan-friendly gateway (Flutterwave, Pesapal or DPO). The API keys stay on the server; the form stays on the page.
+- **Online payments**: add a server route (`server/api/…`) that creates a checkout with a gateway that works in Uganda and Kenya (Flutterwave, Pesapal or DPO). The API keys stay on the server; the form stays on the page.
 - **Content you can edit without code**: connect a headless CMS (Sanity, Decap, Storyblok) or use Nuxt Content, so news and events can be published from a web form.
 - **Contact/volunteer forms** that really send email: a server route + an email API (Resend, Brevo).
 - **SEO extras**: `@nuxtjs/sitemap`, structured data, Open Graph images per page.

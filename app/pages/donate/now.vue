@@ -3,7 +3,7 @@ import { site } from '~/data/site'
 
 useSeoMeta({
   title: 'Donate now',
-  description: 'Give once, monthly or yearly to support orphaned children in Uganda.',
+  description: 'Give once, monthly or yearly to support orphaned children in Uganda and Kenya.',
 })
 
 type Currency = 'UGX' | 'USD'

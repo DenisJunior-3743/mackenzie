@@ -3,7 +3,7 @@ export const site = {
   name: 'Mackenzie Foundation',
   tagline: 'Empowering lives',
   description:
-    'Mackenzie Foundation provides shelter, education, healthcare and love to orphaned children in Uganda.',
+    'Mackenzie Foundation provides shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
 
   contact: {
     // TODO: confirm — the old site listed both info@mackenzie.org and info@mackenzieorphanage.org

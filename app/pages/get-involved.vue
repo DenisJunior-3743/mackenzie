@@ -3,7 +3,7 @@ import { site } from '~/data/site'
 
 useSeoMeta({
   title: 'Get involved',
-  description: 'Volunteer, partner with us or fundraise to support orphaned children in Uganda.',
+  description: 'Volunteer, partner with us or fundraise to support orphaned children in Uganda and Kenya.',
 })
 
 const mail = (subject: string) => `mailto:${site.contact.email}?subject=${encodeURIComponent(subject)}`

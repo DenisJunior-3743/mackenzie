@@ -6,13 +6,13 @@ import { news } from '~/data/news'
 useSeoMeta({
   title: 'Mackenzie Foundation — Empowering Orphans, Transforming Lives',
   description:
-    'Join Mackenzie Foundation in providing shelter, education, healthcare and love to orphaned children in Uganda.',
+    'Join Mackenzie Foundation in providing shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
 })
 
 const pillars = [
   {
     title: 'Our Mission',
-    text: 'To provide shelter, education, healthcare and love to orphaned children in Uganda.',
+    text: 'To provide shelter, education, healthcare and love to orphaned children in Uganda and Kenya.',
     image: media.siblings,
     alt: 'Two children smiling together',
     to: '/about#mission',
@@ -26,7 +26,7 @@ const pillars = [
   },
   {
     title: 'Where We Serve',
-    text: 'Children across Uganda, with our home in Kampala.',
+    text: 'Children across Uganda and Kenya, with our home in Kampala.',
     image: media.school,
     alt: 'Children walking to school together',
     to: '/about#where',
@@ -75,13 +75,13 @@ const latest = news.slice(0, 3)
         <p
           class="animate-fade-up inline-flex items-center gap-2 rounded-full bg-gold-400/15 px-4 py-1.5 text-sm font-medium text-gold-200 ring-1 ring-gold-300/40"
         >
-          <Icon name="lucide:sparkles" size="16" /> Mackenzie Foundation · Uganda
+          <Icon name="lucide:sparkles" size="16" /> Mackenzie Foundation · Uganda and Kenya
         </p>
         <h1 class="animate-fade-up mt-6 max-w-3xl text-4xl font-semibold leading-[1.1] sm:text-6xl [animation-delay:100ms]">
           Empowering orphans, <span class="text-gold-300">transforming lives</span>
         </h1>
         <p class="animate-fade-up mt-6 max-w-xl text-lg text-navy-100 sm:text-xl [animation-delay:200ms]">
-          Join us in making a difference for the children of Uganda.
+          Join us in making a difference for the children of Uganda and Kenya.
         </p>
         <div class="animate-fade-up mt-10 flex flex-wrap gap-4 [animation-delay:300ms]">
           <BaseButton to="/donate/now" size="lg"><Icon name="lucide:heart" size="20" /> Donate now</BaseButton>
@@ -100,7 +100,7 @@ const latest = news.slice(0, 3)
       <div v-reveal class="mx-auto max-w-3xl">
         <p class="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-gold-800">Why we exist</p>
         <p class="font-display text-2xl font-medium leading-snug text-navy-900 sm:text-3xl">
-          Every day, hundreds of children in Uganda are orphaned due to disease, conflict, and poverty.
+          Every day, hundreds of children in Uganda and Kenya are orphaned due to disease, conflict, and poverty.
         </p>
         <p class="mt-6 text-lg text-navy-700">
           At <strong class="text-navy-900">Mackenzie Foundation</strong>, our goal is to provide shelter, education,
